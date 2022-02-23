@@ -23,6 +23,5 @@ h1{
 .country:hover{
   transform: scale(1.02);
   transform: translateY(-10px);
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  border: .5px solid black;
+  border: .5px solid rgba(247, 8, 255, 0.432);
 }

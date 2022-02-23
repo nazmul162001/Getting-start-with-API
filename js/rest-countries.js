@@ -13,7 +13,7 @@ const displayCountries = countries => {
   // using forEach / similar to map 
   const countriesDiv = document.getElementById('countries');
   countries.forEach(country => {
-    // console.log(country);
+    console.log(country);
     const div = document.createElement('div');
     div.classList.add('country');
     // creat element using template string 
@@ -37,5 +37,16 @@ const loadCountryByName = name => {
   const url = `https://restcountries.com/v3.1/name/${name}`
   fetch(url)
   .then(res => res.json())
-  .then(data => console.log(data));
+  .then(data => displayCountryDetail(data[0]));
+}
+
+const displayCountryDetail = country => {
+  console.log(country.flag);
+  const countryDiv = document.getElementById('country-detail')
+  countryDiv.innerHTML = `
+  <h5>Country: ${country.name.common}</h5>
+  <p> Population: ${country.population} </p>
+  <img width="200px" src ="${country.flags.png}">
+  <p>Map: ${country.maps.googleMaps} </p>
+  `
 }
